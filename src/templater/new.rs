@@ -3,7 +3,7 @@ use anyhow::{anyhow, Result};
 use crate::config::global::{Template, Config};
 
 pub async fn create_new(path: PathBuf, name: String) -> Result<()> {
-    let template = Template { path, name: name.clone() };
+    let template = Template {path: std::fs::canonicalize(&path)?, name: name.clone()};
     
     let mut config = Config::load();
     config.add_template(template);
