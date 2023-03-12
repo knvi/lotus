@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use std::path::PathBuf;
 use std::io::Read;
 use serde::{Deserialize, Serialize};
